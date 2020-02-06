@@ -12,7 +12,9 @@ describe('AuthorsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [NgxJsonapiModule],
+      imports: [NgxJsonapiModule.forRoot({
+        url: '//jsonapiplayground.reyesoft.com/v2/'
+      })],
       declarations: [AuthorsComponent],
       providers: [AuthorsService]
     })
@@ -29,24 +31,21 @@ describe('AuthorsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('Render', () => {
-    beforeEach(() => {
-      fixture.detectChanges();
-    });
-
-    it('should have a title', () => {
+  it('should have a title', () => {
       const titleElements = fixture.debugElement.queryAll(By.css('h1'));
       expect(titleElements.length).toBe(1);
       expect(titleElements[0].nativeElement.innerHTML).toBe('authors works!');
     });
 
-    it('show all the authors', async () =>  {
+  it('show all the authors', async () =>  {
       // tslint:disable-next-line:no-debugger
       debugger;
+      fixture.detectChanges();
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      fixture.detectChanges();
       const authorElements = fixture.debugElement.queryAll(By.css('.author'));
       expect(authorElements.length).toBeGreaterThan(3);
     });
-  });
 });
 
 

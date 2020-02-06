@@ -6,7 +6,6 @@ export class Author extends Resource {
     name: 'default name',
     date_of_birth: ''
   };
-
 }
 
 @Injectable()

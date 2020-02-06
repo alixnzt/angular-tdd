@@ -11,6 +11,7 @@ export class AuthorsComponent implements OnInit {
   public authors: DocumentCollection<Author>;
 
   public constructor(private authorsService: AuthorsService) {
+
     const authors = authorsService.all({
       // tslint:disable-next-line:no-shadowed-variable
     }).subscribe(authors => (this.authors = authors));
