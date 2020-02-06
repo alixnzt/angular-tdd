@@ -3,13 +3,18 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AuthorsComponent } from './authors.component';
 import {By} from '@angular/platform-browser';
 
+import { NgxJsonapiModule } from 'ngx-jsonapi';
+import {AuthorsService} from './authors.service';
+
 describe('AuthorsComponent', () => {
   let component: AuthorsComponent;
   let fixture: ComponentFixture<AuthorsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AuthorsComponent ]
+      imports: [NgxJsonapiModule],
+      declarations: [AuthorsComponent],
+      providers: [AuthorsService]
     })
     .compileComponents();
   }));

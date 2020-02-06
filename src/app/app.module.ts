@@ -6,24 +6,35 @@ import { AppComponent } from './app.component';
 import { AuthorsComponent } from './authors/authors.component';
 
 import { NgxJsonapiModule } from 'ngx-jsonapi';
-import { BooksComponent } from './books/books.component';
-import { PhotosComponent } from './photos/photos.component';
+import {RouterModule, Routes} from '@angular/router';
+import {AuthorsService} from './authors/authors.service';
+
+const appRoutes: Routes = [
+  {
+    path: '',
+    redirectTo: '/authors',
+    pathMatch: 'full'
+  },
+  {
+    path: 'authors',
+    component: AuthorsComponent
+  }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthorsComponent,
-    BooksComponent,
-    PhotosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule.forRoot(appRoutes),
     NgxJsonapiModule.forRoot({
       url: '//jsonapiplayground.reyesoft.com/v2/'
     })
   ],
-  providers: [],
+  providers: [AuthorsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
