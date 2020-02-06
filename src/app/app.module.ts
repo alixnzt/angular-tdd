@@ -32,7 +32,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     NgxJsonapiModule.forRoot({
       url: '//jsonapiplayground.reyesoft.com/v2/'
-    })
+    }),
   ],
   providers: [AuthorsService],
   bootstrap: [AppComponent]
