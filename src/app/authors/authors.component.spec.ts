@@ -39,6 +39,13 @@ describe('AuthorsComponent', () => {
       expect(titleElements.length).toBe(1);
       expect(titleElements[0].nativeElement.innerHTML).toBe('authors works!');
     });
+
+    it('show all the authors', async () =>  {
+      // tslint:disable-next-line:no-debugger
+      debugger;
+      const authorElements = fixture.debugElement.queryAll(By.css('.author'));
+      expect(authorElements.length).toBeGreaterThan(3);
+    });
   });
 });
 

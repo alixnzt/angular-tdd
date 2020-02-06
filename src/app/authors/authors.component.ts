@@ -11,14 +11,7 @@ export class AuthorsComponent implements OnInit {
   public authors: DocumentCollection<Author>;
 
   public constructor(private authorsService: AuthorsService) {
-
-    /* authorsService
-      .all({
-        // include: ['books', 'photos'],
-      })
-      .subscribe(authors => (this.authors = authors)); */
     const authors = authorsService.all({
-     // sort: ['name', 'job_title']
       // tslint:disable-next-line:no-shadowed-variable
     }).subscribe(authors => (this.authors = authors));
   }
